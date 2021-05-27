@@ -1,0 +1,96 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+#header{
+position: fixed;
+top: 0px;
+width: 100%;
+background-color: gray;
+height: 30px;
+}
+#non-fixed {
+    margin-top: 35px;
+}
+#nav {
+    text-align: center;
+    background-color: gray;
+    margin-bottom: 5px;
+}
+
+.nav-col {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+}
+
+#nav a {
+    color: black;
+    text-decoration: none;
+    font-size: small;
+}
+#content {
+    height: 700px;
+    margin-bottom: 5px;
+}
+#left-content {
+    float: left;
+    width: 20%;
+    background-color: lightblue;
+    height: 700px;
+}
+
+#right-content {
+    float: left;
+    width: 80%;
+    height: 700px;
+}
+
+#footer {
+    background-color: lightblue;
+    text-align: center;
+    font-size: small;
+}
+
+.preview .thumbnail {
+    background-color: white;
+    height: 100px;
+    margin: 5px;
+}
+
+.preview .title {
+    font-size: small;
+    margin-left: 5px;
+}
+
+.preview .title span {
+    font-size: x-small;
+}
+
+.preview .channel {
+    font-size: small;
+    color: dimgray;
+    margin-left: 5px;
+}
+
+#video {
+    background-color: blue;
+    width: 500px;
+    height: 300px;
+    margin: 0px auto;
+}
+
+#title {
+    margin: 10px;
+}
+
+#view-count {
+    font-size: small;
+    color: gray;
+}
+
+#plot {
+    margin: 10px;
+}
