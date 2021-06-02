@@ -39,7 +39,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void deleteCustomerForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findCustomerByID(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher dispatcher;
         if(customer == null){
             dispatcher = request.getRequestDispatcher("/customer/error-404.jsp");
@@ -71,7 +71,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findCustomerByID(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher dispatcher;
         if(customer == null){
             dispatcher = request.getRequestDispatcher("/customer/error-404.jsp");
@@ -100,7 +100,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void editInfoCustomerForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findCustomerByID(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/customer/edit.jsp");
         if(customer == null){
             dispatcher = request.getRequestDispatcher("/customer/error-404.jsp");
@@ -124,10 +124,9 @@ public class CustomerServlet extends HttpServlet {
 
 
     private void createNewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String address = request.getParameter("address");
-        Customer customer = new Customer(id,name,address);
+        Customer customer = new Customer(name,address);
         customerService.createNew(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/customer/create.jsp");
         dispatcher.forward(request,response);

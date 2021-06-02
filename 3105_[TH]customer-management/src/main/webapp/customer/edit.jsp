@@ -19,12 +19,13 @@
         <tr>
             <td></td>
             <td>
+
                 <input type="hidden"  name="id"  value="${customer.id}"/>
             </td>
         </tr>
         <tr>
             <td>name:</td>
-            <td><input type="text" name="name" value="${customer.name}"/></td>
+            <td><input type="text" name="name"  value="${customer.name}"/></td>
         </tr>
         <tr>
             <td>address:</td>

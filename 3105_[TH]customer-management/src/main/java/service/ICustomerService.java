@@ -9,8 +9,7 @@ public interface ICustomerService {
 
     void createNew(Customer customer);
 
-    int findById(int id);
-    Customer findCustomerByID(int id);
+    Customer findById(int id);
 
     boolean update(int id, Customer customer);
 

@@ -16,10 +16,6 @@
 <form action="/customers?action=create" method="post">
 <table border="1">
     <tr>
-        <td>id:</td>
-        <td><input type="text" name="id"></td>
-    </tr>
-    <tr>
         <td>name:</td>
         <td><input type="text" name="name"></td>
     </tr>
