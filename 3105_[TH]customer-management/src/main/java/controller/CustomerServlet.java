@@ -27,12 +27,29 @@ public class CustomerServlet extends HttpServlet {
             case "edit":
                 editInfoCustomerForm(request,response);
                 break;
+            case "delete":
+                deleteCustomerForm(request,response);
+                break;
             default:
                 listCustomers(request, response);
                 break;
         }
 
     }
+
+    private void deleteCustomerForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findCustomerByID(id);
+        RequestDispatcher dispatcher;
+        if(customer == null){
+            dispatcher = request.getRequestDispatcher("/customer/error-404.jsp");
+        }else {
+            request.setAttribute("customer",customer);
+            dispatcher = request.getRequestDispatcher("/customer/delete.jsp");
+        }
+        dispatcher.forward(request,response);
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -46,8 +63,29 @@ public class CustomerServlet extends HttpServlet {
             case "edit":
                 editInfoCustomer(request,response);
                 break;
+            case "delete":
+                deleteCustomer(request,response);
+                break;
         }
     }
+
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findCustomerByID(id);
+        RequestDispatcher dispatcher;
+        if(customer == null){
+            dispatcher = request.getRequestDispatcher("/customer/error-404.jsp");
+        } else {
+            this.customerService.delete(id);
+            try {
+                response.sendRedirect("/customers");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
     private void editInfoCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));

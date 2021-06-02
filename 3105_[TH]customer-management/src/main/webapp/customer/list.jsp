@@ -21,6 +21,7 @@
         <td>Name</td>
         <td>Address</td>
         <td>Edit</td>
+        <td>Delete</td>
     </tr>
     <c:forEach items="${customers}" var="customer">
         <tr>
@@ -28,6 +29,7 @@
             <td><c:out value="${customer.name}"/></td>
             <td><c:out value="${customer.address}"/></td>
             <td><a href="/customers?action=edit&&id=${customer.id}">Edit</a></td>
+            <td><a href="/customers?action=delete&&id=${customer.id}">delete</a></td>
 
         </tr>
     </c:forEach>
